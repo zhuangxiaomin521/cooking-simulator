@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>烹饪工坊 · 扫码游玩</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(160deg,#fff5f8 0%,#ffe8ef 55%,#ffdce8 100%);
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    color:#5a3a4e;padding:20px;
+  }
+  .card{
+    background:linear-gradient(180deg,#fffafc,#fff0f5);
+    border:1.5px solid rgba(255,138,168,0.35);border-radius:22px;
+    padding:30px 28px;text-align:center;max-width:340px;width:100%;
+    box-shadow:0 16px 48px rgba(255,138,168,0.2);
+  }
+  .logo{font-size:13px;letter-spacing:6px;color:#e85a8a;font-weight:600;margin-bottom:6px;}
+  h1{
+    font-size:24px;font-weight:800;letter-spacing:2px;margin-bottom:6px;
+    background:linear-gradient(180deg,#ff8aa8,#e85a8a);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .sub{font-size:12px;color:#c8788a;letter-spacing:1px;margin-bottom:20px;}
+  .qr-wrap{
+    background:#fff;padding:16px;border-radius:16px;display:inline-block;
+    box-shadow:0 4px 16px rgba(255,138,168,0.15);margin-bottom:18px;
+  }
+  .qr-wrap img{display:block;width:220px;height:220px;}
+  .url{
+    font-family:"SF Mono","Consolas",monospace;font-size:12px;color:#8a5a6e;
+    background:rgba(255,138,168,0.08);padding:8px 12px;border-radius:8px;
+    word-break:break-all;margin-bottom:14px;border:1px dashed rgba(255,138,168,0.3);
+  }
+  .btn{
+    display:inline-block;padding:10px 24px;font-size:14px;font-weight:700;color:#fff;
+    background:linear-gradient(180deg,#ff9ab6,#e85a8a);border:none;border-radius:20px;
+    cursor:pointer;text-decoration:none;
+    box-shadow:0 4px 14px rgba(232,90,138,0.3);transition:transform .12s;
+  }
+  .btn:active{transform:scale(0.96);}
+  .tip{font-size:11px;color:#c8788a;margin-top:14px;line-height:1.6;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">COOKING GAME</div>
+    <h1>烹饪工坊</h1>
+    <div class="sub">扫码即可游玩 · 手机电脑通用</div>
+    <div class="qr-wrap">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&bgcolor=ffffff&color=e85a8a&margin=8&data=https://super-semifreddo-730b80.netlify.app" alt="二维码">
+    </div>
+    <div class="url">https://super-semifreddo-730b80.netlify.app</div>
+    <br>
+    <a class="btn" href="https://super-semifreddo-730b80.netlify.app" target="_blank">立即游玩</a>
+    <div class="tip">📱 手机扫码 · 电脑点击链接<br>关闭电脑也可永久访问</div>
+  </div>
+</body>
+</html>
