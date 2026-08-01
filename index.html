@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,viewport-fit=cover">
+<title>烹饪工坊 · 美食大师</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<!-- ===== 主菜单 ===== -->
+<div id="menu" class="overlay">
+  <div class="menu-head">
+    <button class="audio-toggle" id="audioToggle" title="音效开关">🔊</button>
+    <div class="logo">✦ 烹 饪 工 坊 ✦</div>
+    <h1>美食大师</h1>
+    <div class="sub">切 · 炒 · 调 · 摆，匠心料理</div>
+    <div class="stat-bar">
+      <span class="item">总得分 <b id="totalScore">0</b></span>
+      <span class="item">已解锁 <b id="unlockedCount">1</b>/6</span>
+      <span class="item">完成局数 <b id="gamesPlayed">0</b></span>
+    </div>
+  </div>
+  <div class="recipe-grid" id="recipeGrid"></div>
+</div>
+
+<!-- ===== 游戏内 HUD ===== -->
+<div id="hud">
+  <div class="left"><button class="hud-btn" id="hudBack">←</button></div>
+  <div class="hud-center">
+    <div class="goal" id="hudGoal">切菜</div>
+    <div class="sub" id="hudSub"></div>
+  </div>
+  <div class="right"><div class="hud-pill" id="hudRight"></div></div>
+</div>
+
+<!-- ===== 烹饪控制条 ===== -->
+<div id="cookCtrl" class="stage-ctrl">
+  <div class="ctrl-group">
+    <span class="ctrl-label">火候</span>
+    <input type="range" id="heatSlider" min="0" max="100" value="40" class="slider">
+    <span class="fire-label" id="fireLabel">中火</span>
+  </div>
+  <button class="btn" id="serveBtn">出锅装盘</button>
+</div>
+
+<!-- ===== 调味控制条 ===== -->
+<div id="seasonCtrl" class="stage-ctrl">
+  <button class="btn ghost" id="seasonReset">🔄 重来</button>
+  <span class="ctrl-hint">按住屏幕调味 · 松手停止</span>
+  <button class="btn" id="seasonFinish">完成调味</button>
+</div>
+
+<!-- ===== 摆盘控制条 ===== -->
+<div id="plateCtrl" class="stage-ctrl">
+  <button class="ctrl-icon" id="rotLeft" title="逆时针旋转">⟲</button>
+  <button class="ctrl-icon" id="rotRight" title="顺时针旋转">⟳</button>
+  <button class="ctrl-icon" id="plateRemove" title="删除选中">🗑</button>
+  <span class="ctrl-hint">拖食材到盘 · 点选可旋转/删除</span>
+  <button class="btn" id="plateFinish">完成摆盘</button>
+</div>
+
+<!-- ===== 阶段完成弹窗（扩展：四阶段明细 + 分享挑战码） ===== -->
+<div id="stageDone" class="overlay">
+  <div class="stage-done-box">
+    <div class="stage-name" id="sdStageName">番茄炒蛋</div>
+    <div class="stage-title" id="sdTitle">切菜完成</div>
+    <div class="stars" id="sdStars">★★★</div>
+    <div class="score" id="sdScore">得分 <b>0</b></div>
+
+    <!-- 四阶段明细 -->
+    <div class="sd-stages" id="sdStages"></div>
+
+    <!-- 分享挑战码 -->
+    <div class="sd-share" id="sdShare">
+      <div class="sd-share-label">挑战码 · 邀请好友超越</div>
+      <div class="sd-share-code">
+        <code id="sdCode">CK00-0000-0</code>
+        <button class="copy-btn" id="sdCopy">复制</button>
+      </div>
+      <div class="sd-share-tip" id="sdCopyTip"></div>
+    </div>
+
+    <div class="hint" id="sdHint"></div>
+    <button class="btn" id="sdContinue">返回菜单</button>
+  </div>
+</div>
+
+<!-- ===== toast 提示 ===== -->
+<div id="toast"></div>
+
+<!-- ===== 脚本（按依赖顺序加载） ===== -->
+<script src="js/core/engine.js"></script>
+<script src="js/core/input.js"></script>
+<script src="js/core/particles.js"></script>
+<script src="js/core/audio.js"></script>
+<script src="js/core/storage.js"></script>
+<script src="js/data/recipes.js"></script>
+<script src="js/data/ingredients.js"></script>
+<script src="js/stages/cutting.js"></script>
+<script src="js/stages/cooking.js"></script>
+<script src="js/stages/seasoning.js"></script>
+<script src="js/stages/plating.js"></script>
+<script src="js/ui/menu.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
